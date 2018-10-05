@@ -19,7 +19,7 @@ python:
 
 install:
   - pip install -r requirements.txt
-  - pip install coverage
+  - pip install coverage coveralls
 
 before_script:
   - ./tests/create_database.sh
@@ -27,3 +27,6 @@ before_script:
 script:
   - coverage run test.py
   - coverage report
+
+after_success:
+  - coveralls
