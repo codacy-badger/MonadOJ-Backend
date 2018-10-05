@@ -2,7 +2,7 @@
 
 from unittest import TestCase
 
-from tests.utils import async_test, MonadSession
+from tests.util import async_test, MonadSession
 
 
 class TestCoroutineWeb(TestCase):
