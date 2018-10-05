@@ -1,0 +1,32 @@
+dist: trusty
+
+branches:
+  only:
+  - master
+  - develop
+  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
+services:
+  - mysql
+
+language: python
+
+cache:
+  - pip
+
+python:
+  - "3.6"
+
+install:
+  - pip install -r requirements.txt
+  - pip install coverage coveralls
+
+before_script:
+  - ./tests/create_database.sh
+
+script:
+  - coverage run test.py
+  - coverage report
+
+after_success:
+  - coveralls

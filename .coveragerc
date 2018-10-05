@@ -1,0 +1,18 @@
+[run]
+branch = True
+source = .
+omit =
+    # omit test file
+    test_*.py
+    tests/*.py
+
+    # main.py won't be run in test
+    main.py
+
+[report]
+exclude_lines =
+    # Don't complain if non-runnable code isn't run:
+    if __name__ == .__main__.:
+
+[html]
+directory = htmlcov
